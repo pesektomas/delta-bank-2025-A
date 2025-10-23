@@ -1,15 +1,29 @@
 package org.example.cards;
 
+import org.example.accounts.BaseBankAccount;
+
 import java.util.UUID;
 
 public class PaymentCardFactory {
 
-    private final PaymentCardNumberGenerator paymentCardNumberGenerator = new PaymentCardNumberGenerator();
-    private final PaymentCardCvvGenerator paymentCardCvvGenerator = new PaymentCardCvvGenerator();
-    private final PaymentCardPinGenerator  paymentCardPinGenerator = new PaymentCardPinGenerator();
-    private final PaymentCardExpirationCalculator paymentCardExpirationCalculator = new PaymentCardExpirationCalculator();
+    private PaymentCardNumberGenerator paymentCardNumberGenerator;
+    private PaymentCardCvvGenerator paymentCardCvvGenerator;
+    private PaymentCardPinGenerator  paymentCardPinGenerator = new PaymentCardPinGenerator();
+    private PaymentCardExpirationCalculator paymentCardExpirationCalculator = new PaymentCardExpirationCalculator();
 
-    public PaymentCard create() {
+    public PaymentCardFactory(
+            PaymentCardNumberGenerator paymentCardNumberGenerator,
+            PaymentCardCvvGenerator paymentCardCvvGenerator,
+            PaymentCardPinGenerator  paymentCardPinGenerator,
+            PaymentCardExpirationCalculator paymentCardExpirationCalculator
+    ) {
+        this.paymentCardNumberGenerator = paymentCardNumberGenerator;
+        this.paymentCardCvvGenerator = paymentCardCvvGenerator;
+        this.paymentCardPinGenerator = paymentCardPinGenerator;
+        this.paymentCardExpirationCalculator = paymentCardExpirationCalculator;
+    }
+
+    public PaymentCard create(BaseBankAccount  baseBankAccount) {
 
         String uuid = UUID.randomUUID().toString();
         String cardNUmber = this.paymentCardNumberGenerator.generateCardNumber();
@@ -19,6 +33,6 @@ public class PaymentCardFactory {
         String expireMonth = this.paymentCardExpirationCalculator.calculateMonthExpire();
         String expireYear = this.paymentCardExpirationCalculator.calculateYearExpire();
 
-        return new PaymentCard(uuid, cardNUmber, cvv, pin, expireMonth, expireYear);
+        return new PaymentCard(uuid, cardNUmber, cvv, pin, expireMonth, expireYear, baseBankAccount);
     }
 }

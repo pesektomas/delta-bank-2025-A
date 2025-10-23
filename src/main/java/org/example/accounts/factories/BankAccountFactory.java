@@ -8,7 +8,11 @@ import org.example.persons.customers.Customer;
 
 public class BankAccountFactory {
 
-    private final BankAccountNumberGenerator bankAccountNumberGenerator = new BankAccountNumberGenerator();
+    private BankAccountNumberGenerator bankAccountNumberGenerator;
+
+    public BankAccountFactory(BankAccountNumberGenerator bankAccountNumberGenerator) {
+        this.bankAccountNumberGenerator = bankAccountNumberGenerator;
+    }
 
     public BankAccount createBankAccount(String uuid, Customer customer) {
         return new BankAccount(

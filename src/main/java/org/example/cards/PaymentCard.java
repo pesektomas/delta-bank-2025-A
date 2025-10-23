@@ -1,5 +1,7 @@
 package org.example.cards;
 
+import org.example.accounts.BaseBankAccount;
+
 public class PaymentCard {
 
     private String uuid;
@@ -14,13 +16,16 @@ public class PaymentCard {
 
     private String expireYear;
 
-    public PaymentCard(String uuid, String cardNumber, String cvv, String pin, String expireMonth, String expireYear) {
+    private BaseBankAccount bankAccount;
+
+    public PaymentCard(String uuid, String cardNumber, String cvv, String pin, String expireMonth, String expireYear, BaseBankAccount bankAccount) {
         this.uuid = uuid;
         this.cardNumber = cardNumber;
         this.cvv = cvv;
         this.pin = pin;
         this.expireMonth = expireMonth;
         this.expireYear = expireYear;
+        this.bankAccount = bankAccount;
     }
 
     public String getUuid() {
@@ -45,5 +50,9 @@ public class PaymentCard {
 
     public String getExpireYear() {
         return expireYear;
+    }
+
+    public BaseBankAccount getBankAccount() {
+        return bankAccount;
     }
 }

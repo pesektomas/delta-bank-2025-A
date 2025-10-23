@@ -3,90 +3,98 @@ package org.example;
 import org.example.accounts.BankAccount;
 import org.example.accounts.BaseBankAccount;
 import org.example.accounts.SaveBankAccount;
-import org.example.accounts.factories.BankAccountFactory;
-import org.example.accounts.services.BankAccountService;
-import org.example.logger.ConsoleLogger;
-import org.example.logger.FileSystemLogger;
-import org.example.logger.Logger;
+import org.example.cards.PaymentCard;
 import org.example.persons.customers.Customer;
-import org.example.persons.customers.factories.CustomerFactory;
 
 public class App {
 
-    Logger logger = new FileSystemLogger();
-
-    CustomerFactory customerFactory = new CustomerFactory();
-    BankAccountService bankAccountService = new BankAccountService();
-    BankAccountFactory bankAccountFactory = new BankAccountFactory();
+    Container container = new Container();
 
     public void run() {
-        Customer customer = customerFactory.createCustomer("c-123", "Tomas", "Pesek");
-        logger.log(customer.getUuid() + ": " + customer.getFirstName() + " " + customer.getLastName());
+        Customer customer = container.customerFactory.createCustomer("c-123", "Tomas", "Pesek");
+        container.logger.log(customer.getUuid() + ": " + customer.getFirstName() + " " + customer.getLastName());
 
-        logger.log("=== TEST BANK ACCOUNT");
+        container.logger.log("=== TEST BANK ACCOUNT");
         BaseBankAccount account1 = testBankAccount(customer);
 
-        logger.log(account1 instanceof BankAccount ? "Bank" : "Save");
+        container.logger.log(account1 instanceof BankAccount ? "Bank" : "Save");
 
-        logger.log("=== TEST SAVE ACCOUNT");
+        container.logger.log("=== TEST SAVE ACCOUNT");
         BaseBankAccount account2 = testSaveAccount(customer);
-        logger.log(account2 instanceof  BankAccount ? "Bank" : "Save");
+        container.logger.log(account2 instanceof  BankAccount ? "Bank" : "Save");
 
         if (account2 instanceof SaveBankAccount) {
             float interestRate = ((SaveBankAccount)account2).getInterestRate();
-            logger.log("Interest Rate: " + interestRate);
+            container.logger.log("Interest Rate: " + interestRate);
         }
+
+        this.testPaymentCard(customer);
     }
 
     private BaseBankAccount testSaveAccount(Customer customer) {
-        BaseBankAccount account = bankAccountFactory.createSaveAccount(
+        BaseBankAccount account = container.bankAccountService.createSaveBankAccount(
                 "u-123",
                 customer,
                 5
         );
 
         try{
-            logger.log(account.getUuid() + "(" + account.getBankAccountNumber() + "): " + account.getBalance());
+            container.logger.log(account.getUuid() + "(" + account.getBankAccountNumber() + "): " + account.getBalance());
 
             // account.addBalance(500);
-            bankAccountService.deposit(account, 500);
-            logger.log(account.getUuid() + ": " + account.getBalance());
+            container.bankAccountDepositManipulationService.deposit(account, 500);
+            container.logger.log(account.getUuid() + ": " + account.getBalance());
 
             // account.subtractBalance(400);
-            bankAccountService.withdraw(account, 500);
-            logger.log(account.getUuid() + ": " + account.getBalance());
+            container.bankAccountDepositManipulationService.withdraw(account, 500);
+            container.logger.log(account.getUuid() + ": " + account.getBalance());
 
         } catch (Exception e) {
-            logger.log("Error: " + e.getMessage());
+            container.logger.log("Error: " + e.getMessage());
         }
 
         return account;
     }
 
     private BaseBankAccount testBankAccount(Customer customer) {
-        BaseBankAccount account = bankAccountFactory.createBankAccount(
+        BaseBankAccount account = container.bankAccountService.createBankAccount(
                 "u-123",
                 customer
         );
 
         try {
-            logger.log(account.getUuid() + " (" + account.getBankAccountNumber() + "): " + account.getBalance());
+            container.logger.log(account.getUuid() + " (" + account.getBankAccountNumber() + "): " + account.getBalance());
 
             // account.addBalance(500);
-            bankAccountService.deposit(account, 500);
-            logger.log(account.getUuid() + ": " + account.getBalance());
+            container.bankAccountDepositManipulationService.deposit(account, 500);
+            container.logger.log(account.getUuid() + ": " + account.getBalance());
 
-            bankAccountService.deposit(account, 400);
-            logger.log(account.getUuid() + ": " + account.getBalance());
+            container.bankAccountDepositManipulationService.deposit(account, 400);
+            container.logger.log(account.getUuid() + ": " + account.getBalance());
 
             // account.subtractBalance(300);
-            bankAccountService.withdraw(account, 300);
+            container.bankAccountDepositManipulationService.withdraw(account, 300);
 
         } catch (Exception e) {
-            logger.log("Error: " + e.getMessage());
+            container.logger.log("Error: " + e.getMessage());
         }
 
         return account;
     }
 
+    private void testPaymentCard(Customer customer) {
+
+        container.logger.log("=== PAYMENT CARD test ===");
+
+        BaseBankAccount bankAccount = container.bankAccountService.createBankAccount("c-123", customer);
+        container.bankAccountDepositManipulationService.deposit(bankAccount, 50000);
+
+        PaymentCard paymentCard = container.paymentCardService.create(bankAccount);
+
+        container.logger.log("cardNumber: " + paymentCard.getCardNumber());
+        container.logger.log("balance: " + paymentCard.getBankAccount().getBalance());
+
+        container.bankAccountCardManipulationService.atmDeposit(paymentCard.getCardNumber(), paymentCard.getPin(), 500);
+        container.logger.log("balance: " + paymentCard.getBankAccount().getBalance());
+    }
 }

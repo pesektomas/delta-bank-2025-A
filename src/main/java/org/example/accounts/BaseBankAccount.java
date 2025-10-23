@@ -2,6 +2,9 @@ package org.example.accounts;
 
 import org.example.persons.customers.Customer;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class BaseBankAccount {
 
     private final String uuid;
