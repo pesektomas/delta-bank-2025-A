@@ -1,18 +1,18 @@
 package org.example.accounts.factories;
 
+import com.google.inject.Inject;
+import com.google.inject.Singleton;
 import org.example.accounts.BankAccount;
 import org.example.accounts.SaveBankAccount;
 import org.example.accounts.StudentBankAccount;
 import org.example.accounts.generators.BankAccountNumberGenerator;
 import org.example.persons.customers.Customer;
 
+@Singleton
 public class BankAccountFactory {
 
+    @Inject
     private BankAccountNumberGenerator bankAccountNumberGenerator;
-
-    public BankAccountFactory(BankAccountNumberGenerator bankAccountNumberGenerator) {
-        this.bankAccountNumberGenerator = bankAccountNumberGenerator;
-    }
 
     public BankAccount createBankAccount(String uuid, Customer customer) {
         return new BankAccount(

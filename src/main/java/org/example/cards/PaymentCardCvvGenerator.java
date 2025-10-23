@@ -1,7 +1,10 @@
 package org.example.cards;
 
+import com.google.inject.Singleton;
+
 import java.security.SecureRandom;
 
+@Singleton
 public class PaymentCardCvvGenerator {
 
     private static final byte DEFAULT_CVV_LENGTH = 3;

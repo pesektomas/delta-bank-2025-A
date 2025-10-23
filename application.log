@@ -10,3 +10,165 @@
 [FILE] u-123: 0.0
 [FILE] Save
 [FILE] Interest Rate: 5.0
+[FILE] c-123: Tomas Pesek
+[FILE] === TEST BANK ACCOUNT
+[FILE] u-123 (9872997958): 0.0
+[FILE] u-123: + 500.0
+[FILE] u-123: 500.0
+[FILE] u-123: + 400.0
+[FILE] u-123: 900.0
+[FILE] u-123: - 300.0
+[FILE] Bank
+[FILE] === TEST SAVE ACCOUNT
+[FILE] u-123(5790941873): 0.0
+[FILE] u-123: + 500.0
+[FILE] u-123: 500.0
+[FILE] u-123: - 500.0
+[FILE] u-123: 0.0
+[FILE] Save
+[FILE] Interest Rate: 5.0
+[FILE] c-123: Tomas Pesek
+[FILE] === TEST BANK ACCOUNT
+[FILE] u-123 (3640029618): 0.0
+[FILE] u-123: + 500.0
+[FILE] u-123: 500.0
+[FILE] u-123: + 400.0
+[FILE] u-123: 900.0
+[FILE] u-123: - 300.0
+[FILE] Bank
+[FILE] === TEST SAVE ACCOUNT
+[FILE] u-123(0363832004): 0.0
+[FILE] u-123: + 500.0
+[FILE] u-123: 500.0
+[FILE] u-123: - 500.0
+[FILE] u-123: 0.0
+[FILE] Save
+[FILE] Interest Rate: 5.0
+[FILE] c-123: Tomas Pesek
+[FILE] === TEST BANK ACCOUNT
+[FILE] u-123 (4947440889): 0.0
+[FILE] u-123: + 500.0
+[FILE] u-123: 500.0
+[FILE] u-123: + 400.0
+[FILE] u-123: 900.0
+[FILE] u-123: - 300.0
+[FILE] Bank
+[FILE] === TEST SAVE ACCOUNT
+[FILE] u-123(2411179517): 0.0
+[FILE] u-123: + 500.0
+[FILE] u-123: 500.0
+[FILE] u-123: - 500.0
+[FILE] u-123: 0.0
+[FILE] Save
+[FILE] Interest Rate: 5.0
+[FILE] === PAYMENT CARD test ===
+[FILE] c-123: + 50000.0
+[FILE] cardNumber: 7468-0528-3655-9756
+[FILE] balance: 50000.0
+[FILE] c-123: Tomas Pesek
+[FILE] === TEST BANK ACCOUNT
+[FILE] u-123 (5149248586): 0.0
+[FILE] u-123: + 500.0
+[FILE] u-123: 500.0
+[FILE] u-123: + 400.0
+[FILE] u-123: 900.0
+[FILE] u-123: - 300.0
+[FILE] Bank
+[FILE] === TEST SAVE ACCOUNT
+[FILE] u-123(5905518463): 0.0
+[FILE] u-123: + 500.0
+[FILE] u-123: 500.0
+[FILE] u-123: - 500.0
+[FILE] u-123: 0.0
+[FILE] Save
+[FILE] Interest Rate: 5.0
+[FILE] === PAYMENT CARD test ===
+[FILE] c-123: + 50000.0
+[FILE] cardNumber: 0979-5072-5488-3007
+[FILE] balance: 50000.0
+[FILE] c-123: Tomas Pesek
+[FILE] === TEST BANK ACCOUNT
+[FILE] u-123 (9999445367): 0.0
+[FILE] u-123: + 500.0
+[FILE] u-123: 500.0
+[FILE] u-123: + 400.0
+[FILE] u-123: 900.0
+[FILE] u-123: - 300.0
+[FILE] Bank
+[FILE] === TEST SAVE ACCOUNT
+[FILE] u-123(6193244459): 0.0
+[FILE] u-123: + 500.0
+[FILE] u-123: 500.0
+[FILE] u-123: - 500.0
+[FILE] u-123: 0.0
+[FILE] Save
+[FILE] Interest Rate: 5.0
+[FILE] === PAYMENT CARD test ===
+[FILE] c-123: + 50000.0
+[FILE] cardNumber: 0552-6759-1565-6524
+[FILE] balance: 50000.0
+[FILE] c-123: Tomas Pesek
+[FILE] === TEST BANK ACCOUNT
+[FILE] u-123 (1228377266): 0.0
+[FILE] u-123: + 500.0
+[FILE] u-123: 500.0
+[FILE] u-123: + 400.0
+[FILE] u-123: 900.0
+[FILE] u-123: - 300.0
+[FILE] Bank
+[FILE] === TEST SAVE ACCOUNT
+[FILE] u-123(3643658953): 0.0
+[FILE] u-123: + 500.0
+[FILE] u-123: 500.0
+[FILE] u-123: - 500.0
+[FILE] u-123: 0.0
+[FILE] Save
+[FILE] Interest Rate: 5.0
+[FILE] === PAYMENT CARD test ===
+[FILE] c-123: + 50000.0
+[FILE] cardNumber: 8774-8276-9781-8325
+[FILE] balance: 50000.0
+[FILE] c-123: Tomas Pesek
+[FILE] === TEST BANK ACCOUNT
+[FILE] u-123 (8576799161): 0.0
+[FILE] u-123: + 500.0
+[FILE] u-123: 500.0
+[FILE] u-123: + 400.0
+[FILE] u-123: 900.0
+[FILE] u-123: - 300.0
+[FILE] Bank
+[FILE] === TEST SAVE ACCOUNT
+[FILE] u-123(1986716021): 0.0
+[FILE] u-123: + 500.0
+[FILE] u-123: 500.0
+[FILE] u-123: - 500.0
+[FILE] u-123: 0.0
+[FILE] Save
+[FILE] Interest Rate: 5.0
+[FILE] === PAYMENT CARD test ===
+[FILE] c-123: + 50000.0
+[FILE] cardNumber: 4862-4367-1363-1328
+[FILE] balance: 50000.0
+[FILE] c-123: Tomas Pesek
+[FILE] === TEST BANK ACCOUNT
+[FILE] u-123 (6351871123): 0.0
+[FILE] u-123: + 500.0
+[FILE] u-123: 500.0
+[FILE] u-123: + 400.0
+[FILE] u-123: 900.0
+[FILE] u-123: - 300.0
+[FILE] Bank
+[FILE] === TEST SAVE ACCOUNT
+[FILE] u-123(4995402502): 0.0
+[FILE] u-123: + 500.0
+[FILE] u-123: 500.0
+[FILE] u-123: - 500.0
+[FILE] u-123: 0.0
+[FILE] Save
+[FILE] Interest Rate: 5.0
+[FILE] === PAYMENT CARD test ===
+[FILE] c-123: + 50000.0
+[FILE] cardNumber: 0737-7991-3652-3056
+[FILE] balance: 50000.0
+[FILE] c-123: - 500.0
+[FILE] balance: 49500.0

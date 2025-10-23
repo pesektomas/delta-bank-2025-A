@@ -1,9 +1,12 @@
 package org.example.logger;
 
+import com.google.inject.Singleton;
+
 import java.io.BufferedWriter;
 import java.io.FileWriter;
 import java.io.IOException;
 
+@Singleton
 public class FileSystemLogger implements Logger {
 
     private final String filePath = "application.log";

@@ -1,8 +1,11 @@
 package org.example.cards;
 
+import com.google.inject.Singleton;
+
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 
+@Singleton
 public class PaymentCardExpirationCalculator {
 
     private static final byte DEFAULT_EXPIRATION_YEAR_LENGTH = 5;

@@ -1,5 +1,7 @@
 package org.example.accounts.services;
 
+import com.google.inject.Inject;
+import com.google.inject.Singleton;
 import org.example.accounts.BaseBankAccount;
 import org.example.accounts.factories.BankAccountFactory;
 import org.example.persons.customers.Customer;
@@ -7,16 +9,16 @@ import org.example.persons.customers.Customer;
 import java.util.HashMap;
 import java.util.Map;
 
+@Singleton
 public class BankAccountService {
 
     private Map<String, BaseBankAccount> bankAccounts;
 
+    @Inject
     private BankAccountFactory bankAccountFactory;
 
-    public BankAccountService(BankAccountFactory bankAccountFactory) {
+    public BankAccountService() {
         this.bankAccounts = new HashMap<>();
-
-        this.bankAccountFactory = bankAccountFactory;
     }
 
     public BaseBankAccount createBankAccount(String uuid, Customer customer) {

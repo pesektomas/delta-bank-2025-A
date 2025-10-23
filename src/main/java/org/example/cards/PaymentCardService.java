@@ -1,22 +1,19 @@
 package org.example.cards;
 
+import com.google.inject.Inject;
+import com.google.inject.Singleton;
 import org.example.accounts.BaseBankAccount;
 
 import java.util.HashMap;
 import java.util.Map;
-import java.util.UUID;
 
+@Singleton
 public class PaymentCardService {
 
-    private Map<String, PaymentCard> paymentCards;
+    private final Map<String, PaymentCard> paymentCards = new HashMap<>();;
 
+    @Inject
     private PaymentCardFactory paymentCardFactory;
-
-    public PaymentCardService(PaymentCardFactory paymentCardFactory) {
-        this.paymentCards = new HashMap<>();
-
-        this.paymentCardFactory = paymentCardFactory;
-    }
 
     public PaymentCard create(BaseBankAccount bankAccount) {
         PaymentCard paymentCard = this.paymentCardFactory.create(bankAccount);

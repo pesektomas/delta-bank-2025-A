@@ -1,20 +1,18 @@
 package org.example.accounts.services;
 
+import com.google.inject.Inject;
+import com.google.inject.Singleton;
 import org.example.cards.PaymentCard;
 import org.example.cards.PaymentCardService;
 
+@Singleton
 public class BankAccountCardManipulationService {
 
+    @Inject
     private PaymentCardService paymentCardService;
-    private BankAccountDepositManipulationService  bankAccountDepositManipulationService;
 
-    public BankAccountCardManipulationService(
-            BankAccountDepositManipulationService  bankAccountDepositManipulationService,
-            PaymentCardService paymentCardService
-    ) {
-        this.bankAccountDepositManipulationService = bankAccountDepositManipulationService;
-        this.paymentCardService = paymentCardService;
-    }
+    @Inject
+    private BankAccountDepositManipulationService  bankAccountDepositManipulationService;
 
     public void atmDeposit(String cardNumber, String pin, double amount) {
         PaymentCard card = paymentCardService.getPaymentCard(cardNumber);

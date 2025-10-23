@@ -1,15 +1,15 @@
 package org.example.accounts.services;
 
+import com.google.inject.Inject;
+import com.google.inject.Singleton;
 import org.example.accounts.BaseBankAccount;
 import org.example.logger.Logger;
 
+@Singleton
 public class BankAccountDepositManipulationService {
 
+    @Inject
     private Logger logger;
-
-    public BankAccountDepositManipulationService(Logger logger) {
-        this.logger = logger;
-    }
 
     public void deposit(BaseBankAccount account, double amount) {
         if (amount <= 0) {

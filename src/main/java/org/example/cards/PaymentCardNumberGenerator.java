@@ -1,7 +1,10 @@
 package org.example.cards;
 
+import com.google.inject.Singleton;
+
 import java.security.SecureRandom;
 
+@Singleton
 public class PaymentCardNumberGenerator {
 
     private static final SecureRandom RANDOM = new SecureRandom();

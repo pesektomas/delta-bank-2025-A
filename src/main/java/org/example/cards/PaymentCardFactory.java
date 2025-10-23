@@ -1,27 +1,25 @@
 package org.example.cards;
 
+import com.google.inject.Inject;
+import com.google.inject.Singleton;
 import org.example.accounts.BaseBankAccount;
 
 import java.util.UUID;
 
+@Singleton
 public class PaymentCardFactory {
 
+    @Inject
     private PaymentCardNumberGenerator paymentCardNumberGenerator;
-    private PaymentCardCvvGenerator paymentCardCvvGenerator;
-    private PaymentCardPinGenerator  paymentCardPinGenerator = new PaymentCardPinGenerator();
-    private PaymentCardExpirationCalculator paymentCardExpirationCalculator = new PaymentCardExpirationCalculator();
 
-    public PaymentCardFactory(
-            PaymentCardNumberGenerator paymentCardNumberGenerator,
-            PaymentCardCvvGenerator paymentCardCvvGenerator,
-            PaymentCardPinGenerator  paymentCardPinGenerator,
-            PaymentCardExpirationCalculator paymentCardExpirationCalculator
-    ) {
-        this.paymentCardNumberGenerator = paymentCardNumberGenerator;
-        this.paymentCardCvvGenerator = paymentCardCvvGenerator;
-        this.paymentCardPinGenerator = paymentCardPinGenerator;
-        this.paymentCardExpirationCalculator = paymentCardExpirationCalculator;
-    }
+    @Inject
+    private PaymentCardCvvGenerator paymentCardCvvGenerator;
+
+    @Inject
+    private PaymentCardPinGenerator  paymentCardPinGenerator;
+
+    @Inject
+    private PaymentCardExpirationCalculator paymentCardExpirationCalculator;
 
     public PaymentCard create(BaseBankAccount  baseBankAccount) {
 

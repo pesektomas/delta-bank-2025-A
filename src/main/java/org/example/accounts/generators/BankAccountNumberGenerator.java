@@ -1,7 +1,10 @@
 package org.example.accounts.generators;
 
+import com.google.inject.Singleton;
+
 import java.util.Random;
 
+@Singleton
 public class BankAccountNumberGenerator {
 
     private final byte GENERATED_ACCOUNT_NUMBER_LENGTH = 10;

@@ -1,5 +1,8 @@
 package org.example.logger;
 
+import com.google.inject.Singleton;
+
+@Singleton
 public class ConsoleLogger implements Logger {
 
     @Override
